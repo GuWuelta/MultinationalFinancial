@@ -1,17 +1,18 @@
-class WorkCoefficient {
-  calculateWorkCoefficient(shift: string, minSalary: number): number {
-    if (shift != "morning" && shift != "afternoon" && shift != "nocturnal")
-      throw new Error("Invalid shift");
-    const morningCoefficient: number = 0.13;
-    const afternoonCoefficient: number = 0.04;
-    const nocturnalCoefficient: number = 0.08;
-    const workerCoefficient = {
-      morning: minSalary * morningCoefficient,
-      afternoon: minSalary * afternoonCoefficient,
-      nocturnal: minSalary * nocturnalCoefficient,
-    }[shift];
+type WorksCoefficient = Record<string, number>;
 
-    return Number(workerCoefficient.toFixed(2));
+class WorkCoefficient {
+  static calculateWorkCoefficient(shifts: string[]): number {
+    const workerCoefficient: WorksCoefficient = {
+      morning: 0.13,
+      afternoon: 0.04,
+      nocturnal: 0.08,
+    };
+    let coefficients: number = shifts.reduce(
+      (acc, shift: string) => (acc += workerCoefficient[shift]),
+      0
+    );
+    if (!coefficients) throw new Error("Invalid shift!");
+    return coefficients;
   }
 }
 
