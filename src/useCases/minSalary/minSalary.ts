@@ -1,10 +1,12 @@
+import { Exceptions } from "../../errors/exceptions";
 import { GetRandomNumber } from "../../utils/randomNumber/getRandomNumber";
 
 class MinSalary {
   constructor() {}
 
   static getRandomSalary(role: string): number {
-    if (role != "worker" && role != "manager") throw new Error("Invalid role!");
+    if (role != "worker" && role != "manager")
+      throw new Exceptions("Invalid role!");
     const randomNumber = new GetRandomNumber();
     const minSalary = {
       worker: randomNumber.execute(750, 2500),

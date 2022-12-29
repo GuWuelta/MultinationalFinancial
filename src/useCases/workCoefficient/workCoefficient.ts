@@ -1,3 +1,5 @@
+import { Exceptions } from "../../errors/exceptions";
+
 type WorksCoefficient = Record<string, number>;
 
 class WorkCoefficient {
@@ -11,7 +13,7 @@ class WorkCoefficient {
       (acc, shift: string) => (acc += workerCoefficient[shift]),
       0
     );
-    if (!coefficients) throw new Error("Invalid shift!");
+    if (!coefficients) throw new Exceptions("Invalid shift(s)!");
     return coefficients;
   }
 }

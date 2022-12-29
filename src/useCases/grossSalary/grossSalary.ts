@@ -1,10 +1,12 @@
+import { Exceptions } from "../../errors/exceptions";
+
 class GrossSalary {
   static calculateGrossSalary(
     workedHours: number,
     workCoefficient: number,
     minSalary: number
   ): number {
-    if (workedHours <= 0) throw new Error("Invalid worked hours!");
+    if (workedHours <= 0) throw new Exceptions("Invalid worked hours!");
     const grossSalary: number = workedHours * (workCoefficient * minSalary);
     return Number(grossSalary.toFixed(2));
   }
