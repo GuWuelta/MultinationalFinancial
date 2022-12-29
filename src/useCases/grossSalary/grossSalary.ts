@@ -6,7 +6,7 @@ class GrossSalary {
     workCoefficient: number,
     minSalary: number
   ): number {
-    if (workedHours <= 0) throw new Exceptions("Invalid worked hours!");
+    if (workedHours <= 0 || workedHours > 720) throw new Exceptions("Invalid worked hours!");
     const grossSalary: number = workedHours * (workCoefficient * minSalary);
     return Number(grossSalary.toFixed(2));
   }
