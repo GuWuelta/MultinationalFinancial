@@ -6,7 +6,7 @@
 
 <br>
 
-## :dart: Sobre
+## :dart: Sobre!
 
 Uma empresa multinacional está buscando criar um programa que poupe o tempo e substitua os cálculos manuais do coeficiente de trabalho, imposto, gratificação e etc dos funcionários. Neste cenário, foi criado um algoritmo que recebe algumas informações e utiliza elas para fazer os cáculos e retornar:
 
